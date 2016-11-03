@@ -1,0 +1,24 @@
+Third party libraries:
+aJson - Copyright (c) 2010, Interactive Matter, Marcus Nowotny
+    - JSON implementation for Arduino.
+    - Used to make the messaging protocol work.
+
+BMP085 - Written by Limor Fried/Ladyada for Adafruit Industries
+    - Library for the BMP085 barometric pressure + temperature sensor.
+
+dallas_temperature_control
+    - Library for the DS18B20 temperature sensor.
+    - Requires the OneWire library to work.
+
+OneWire -
+    - Library that allows Arduino to interface with OneWire protocol sensors like the DS18B20.
+
+DHT11 - by George Hadjikyriacou
+    - Library for the DHT11 humidity and temperature sensor.
+
+HCSR04Ultrasonic - by Carl Nobile
+    - Library for the HC-SR04 Ultrasonic sensor
+
+MemoryFree
+    - Tells the user how many free kilobytes of memory are left.
+    - Used for debugging.
