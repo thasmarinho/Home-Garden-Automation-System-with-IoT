@@ -1,6 +1,6 @@
-#define rainPin A0;
-#define greenLED = 6;
-#define redLED = 7;
+#define rainPin A0
+#define greenLED D3
+#define redLED D1
 // you can adjust the threshold value
 int thresholdValue = 800;
 
