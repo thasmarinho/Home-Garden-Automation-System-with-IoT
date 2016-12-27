@@ -1,14 +1,14 @@
 #define rainPin A0
-#define greenLED D3
+#define blueLED D3
 #define redLED D1
 // you can adjust the threshold value
-int thresholdValue = 800;
+int thresholdValue = 400;
 
 void setup(){
   pinMode(rainPin, INPUT);
-  pinMode(greenLED, OUTPUT);
+  pinMode(blueLED, OUTPUT);
   pinMode(redLED, OUTPUT);
-  digitalWrite(greenLED, LOW);
+  digitalWrite(blueLED, LOW);
   digitalWrite(redLED, LOW);
   Serial.begin(9600);
 }
@@ -20,12 +20,12 @@ void loop() {
   if(sensorValue < thresholdValue){
     Serial.println(" - Doesn't need watering");
     digitalWrite(redLED, LOW);
-    digitalWrite(greenLED, HIGH);
+    digitalWrite(blueLED, HIGH);
   }
   else {
     Serial.println(" - Time to water your plant");
     digitalWrite(redLED, HIGH);
-    digitalWrite(greenLED, LOW);
+    digitalWrite(blueLED, LOW);
   }
   delay(500);
 }
