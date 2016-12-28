@@ -4,9 +4,9 @@
 #define rainPin A0
 #define blueLED D3
 #define redLED D1
-#define SSID "Erva_de_Gato"
-#define PASS "gatos_negros_1234"
-#define AUTH "5b7d55aed6064a0ab4ed9168afa68a65"
+#define SSID ""
+#define PASS ""
+#define AUTH ""
 
 long lastConnectionTime;
 int minUmidadeSolo = 80; // 0 -- 100
