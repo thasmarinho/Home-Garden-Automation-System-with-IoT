@@ -2,6 +2,8 @@
 // Written by ladyada, public domain
 
 #include "DHT.h"
+#include <ESP8266WiFi.h>
+#include <BlynkSimpleEsp8266.h>
 
 #define DHTPIN 2     // what digital pin we're connected to
 
@@ -11,7 +13,8 @@
 //#define DHTTYPE DHT21   // DHT 21 (AM2301)
 #define SSID ""
 #define PASS ""
-#define AUTH "" 
+#define AUTH ""
+
 // Connect pin 1 (on the left) of the sensor to +5V
 // NOTE: If using a board with 3.3V logic like an Arduino Due connect pin 1
 // to 3.3V instead of 5V!
@@ -25,14 +28,23 @@
 // as the current DHT reading algorithm adjusts itself to work on faster procs.
 DHT dht(DHTPIN, DHTTYPE);
 
+void FazConexaoWiFi(void)
+{ 
+    delay(1000);
+    Blynk.begin(AUTH, SSID, PASS);
+    delay(1000);
+}
+
 void setup() {
   Serial.begin(9600);
   Serial.println("DHTxx test!");
+  FazConexaoWiFi(); 
   dht.begin();
   loop();
 }
 
 void loop() {
+  Blynk.run();
   // Wait a few seconds between measurements.
   delay(2000);
 
@@ -43,7 +55,8 @@ void loop() {
   float t = dht.readTemperature();
   // Read temperature as Fahrenheit (isFahrenheit = true)
   float f = dht.readTemperature(true);
-  
+  Blynk.virtualWrite(10, h); //humidade
+  Blynk.virtualWrite(11, t); //temperatura em Celsius
 
   // Check if any reads failed and exit early (to try again).
   if (isnan(h)) {
