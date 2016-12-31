@@ -1,9 +1,9 @@
 #include <ESP8266WiFi.h>
 #include <BlynkSimpleEsp8266.h>
 
-#define SSID "Erva_de_Gato"
-#define PASS "gatos_negros_1234"
-#define AUTH "5b7d55aed6064a0ab4ed9168afa68a65"
+#define SSID ""
+#define PASS ""
+#define AUTH ""
 #define sensor  A0      //Pino analógico em que o sensor está conectado.
 int valorSensor = 0; //Usada para ler o valor do sensor em tempo real.
 
