@@ -15,6 +15,7 @@
 #define PASS ""
 #define AUTH ""
 
+
 // Connect pin 1 (on the left) of the sensor to +5V
 // NOTE: If using a board with 3.3V logic like an Arduino Due connect pin 1
 // to 3.3V instead of 5V!
