@@ -10,6 +10,8 @@ int selPin[] = { 4, 5, 16 }; // select pins on 4051 (D2, D1, D0)
 float valorSensor = 0.0;
 float luz = 0.0, temp = 0.0, umidade = 0.0;
 
+WidgetLCD lcd(1);
+
 void FazConexaoWiFi(void)
 { 
     delay(1000);
@@ -24,6 +26,7 @@ void setup(){
   digitalWrite(analogicPin, INPUT);
   Serial.begin(9600);
   FazConexaoWiFi();
+  lcd.clear();
 }
 
 void loop() {
@@ -40,6 +43,14 @@ void loop() {
   Serial.println("Leitura de umidade");
   Serial.println(umidade);
   Blynk.virtualWrite(12, umidade);
+  if(temp >= 32 && umidade <=500){ //valores testes
+      lcd.clear();
+      lcd.print(0, 0, "Atenção ! ");
+  }
+  else{
+      lcd.clear();
+      lcd.print(0, 0, "Tempo Agradável");
+  }
   for(int i = 0, count = 0; i < 10; i++, count++){
     if(count >= 3){
       count = 0;
