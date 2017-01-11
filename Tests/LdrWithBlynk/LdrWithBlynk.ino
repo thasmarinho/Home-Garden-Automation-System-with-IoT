@@ -4,6 +4,7 @@
 #define SSID ""
 #define PASS ""
 #define AUTH ""
+
 #define sensor  A0      //Pino analógico em que o sensor está conectado.
 int valorSensor = 0; //Usada para ler o valor do sensor em tempo real.
 
@@ -27,7 +28,6 @@ void loop(){
   Blynk.run();
   //Lendo o valor do sensor.
   int valorSensor = analogRead(sensor);
-
   Blynk.virtualWrite(13, valorSensor);
   Serial.println(valorSensor);
 
